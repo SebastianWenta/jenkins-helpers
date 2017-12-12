@@ -3,10 +3,13 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
-def call (String s, String t){
-  Path source = Paths.get(s)
-  Path target = Paths.get(t)
-  Files.copy(source, target, REPLACE_EXISTING)
+def call (Object o){
+
+  println "RESULT FROM CALL: " + o
+
+  //Path source = Paths.get(s)
+  //Path target = Paths.get(t)
+  //Files.copy(source, target, REPLACE_EXISTING)
 }
 
 
