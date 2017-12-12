@@ -5,7 +5,7 @@ import java.nio.file.Paths
 
 def call (Object o){
 
-  println "RESULT FROM CALL: " + o
+  return "RESULT FROM CALL: " + o
 
   //Path source = Paths.get(s)
   //Path target = Paths.get(t)
