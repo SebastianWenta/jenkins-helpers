@@ -3,10 +3,10 @@ import java.nio.file.Files
 import java.nio.file.Path
 import java.nio.file.Paths
 
-def call (Object o){
+def call (Object sourcePath, String targetPath){
 
-  Path source = Paths.get(o.toString())
-  Path target = Paths.get("C:\\Projects\\output")
+  Path source = Paths.get(sourcePath.toString())
+  Path target = Paths.get(targetPath)
   Files.copy(source, target, REPLACE_EXISTING)
 
   return "RESULT FROM CALL: " + o + "\n target"
