@@ -7,9 +7,9 @@ def call (Object sourcePath, String targetPath){
 
   Path source = Paths.get(sourcePath.toString())
   Path target = Paths.get(targetPath)
-  Files.copy(source, target, REPLACE_EXISTING)
+  Files.copy(source, target + "\\target.txt", REPLACE_EXISTING)
 
-  return "RESULT FROM CALL: " + o + "\n target"
+  return "RESULT FROM CALL: " +  "\n${targetPath}" + "\n ${targetPath}"
 }
 
 
