@@ -6,7 +6,7 @@ import java.nio.file.Paths
 def call (Object sourcePath, String targetPath){
 
   Path source = Paths.get(sourcePath.toString())
-  Path target = Paths.get(targetPath + "\\target.txt")
+  Path target = Paths.get(targetPath + "\\target.xlsx")
   Files.copy(source, target, REPLACE_EXISTING)
   return "asd"
   //return "RESULT FROM CALL: " +  "\n${sourcePath.toString()}" + "\n ${targetPath}"
