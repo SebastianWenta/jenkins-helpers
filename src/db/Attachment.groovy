@@ -1,7 +1,6 @@
 /**
  * Created by sebwent on 14/12/2017.
  */
-
 import pl.uniteam.rpa_dbconnect.*
 
 class Attachment {
