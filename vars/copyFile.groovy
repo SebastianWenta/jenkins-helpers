@@ -7,8 +7,8 @@ def call (Object sourcePath, String targetPath){
 
   Path source = Paths.get(sourcePath.toString())
   Path target = Paths.get(targetPath + "\\target.xlsx")
-  Files.copy(source, target, REPLACE_EXISTING)
-  return "files copied"
+  return Files.copy(source, target, REPLACE_EXISTING).toAbsolutePath().toString()
+
 
 }
 
