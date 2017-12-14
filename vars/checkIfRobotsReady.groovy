@@ -4,7 +4,7 @@
 
 def call (){
 
-    jobs = Jenkins.instance.getAllItems()
+    def jobs = Jenkins.instance.getAllItems()
     jobs.findAll{j ->
         j.fullName.contains("ROBOT")
     }.each { j ->
