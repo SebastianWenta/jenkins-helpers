@@ -3,6 +3,6 @@
  */
 import pl.uniteam.rpa_dbconnect.*
 def call (Object sourcePath){
-    //def Attachments att = new Attachments()
-    //att.insertAttachment(sourcePath.toString(), test, 15, asd, 1)
+    def Attachments att = new Attachments()
+    att.insertAttachment(sourcePath.toString(), test, 15, asd, 1)
 }
