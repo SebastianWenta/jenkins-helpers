@@ -5,7 +5,7 @@
 class Attachment {
 
     public static def build() {
-        println "TEST XXX"
+        return "TEST XXX"
     }
 
 }
