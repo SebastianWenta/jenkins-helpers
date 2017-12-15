@@ -142,62 +142,62 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
 //        }
     }
 
-    rowIndex = 0;
-    for (Iterator<Row> rowsIT = sheet.rowIterator(); rowsIT.hasNext();) {
-        Row row = rowsIT.next();
-        if (rowIndex>2){
-            int cellIndex = 0;
-            for (Iterator<Cell> cellsIT = row.cellIterator(); cellsIT.hasNext(); ) {
-                Cell cell = cellsIT.next();
-                if (logout){
-                    println rowIndex + ":" + cellIndex + " - " + cell.toString()
-                }
-
-                println "OPTIONS: "
-                excelItems.findAll{it.column==cellIndex}.each { it ->
-                    println "\n" + it.toString() + "\n"
-                }
-
-                ExcelItem columnDescription
-
-                ExcelItem row2 = excelItems.find{it.column==cellIndex}.find{it.row==2}
-                ExcelItem row1 = excelItems.find{it.column==cellIndex}.find{it.row==1}
-                ExcelItem row0 = excelItems.find{it.column==cellIndex}.find{it.row==0}
-
-                if (row2!=null){
-                    columnDescription = row2
-                } else if (row1!=null){
-                    columnDescription = row1
-                } else if (row0!=null){
-                    columnDescription = row0
-                }
-
-                println "CHOSEN FOR COLUMN: \n" + columnDescription.toString() + "\n"
-                println "CELL VALUE: " + cell.toString()
-
-                 if (columnDescription.parent != null){
-                     if (columnDescription.parent.row==0){
-                         if (columnDescription.row==2){
-                             fields.add(new ValueToInsert(columnDescription.parent.value, "", columnDescription.value,cell.toString(), cellIndex,rowIndex))
-                         } else {
-                             fields.add(new ValueToInsert(columnDescription.parent.value, columnDescription.value, "",cell.toString(), cellIndex,rowIndex))
-                         }
-                     } else {
-                         fields.add(new ValueToInsert(columnDescription.parent.parent.value, columnDescription.parent.value, columnDescription.value,cell.toString(), cellIndex,rowIndex))
-                     }
-                 } else {
-                     fields.add(new ValueToInsert(columnDescription.value, "", "",cell.toString(), cellIndex,rowIndex))
-                 }
-
-                cellIndex++;
-            }
-        }
-        rowIndex++;
-    }
-
-    fields.each{
-        println it.toString()
-    }
+//    rowIndex = 0;
+//    for (Iterator<Row> rowsIT = sheet.rowIterator(); rowsIT.hasNext();) {
+//        Row row = rowsIT.next();
+//        if (rowIndex>2){
+//            int cellIndex = 0;
+//            for (Iterator<Cell> cellsIT = row.cellIterator(); cellsIT.hasNext(); ) {
+//                Cell cell = cellsIT.next();
+//                if (logout){
+//                    println rowIndex + ":" + cellIndex + " - " + cell.toString()
+//                }
+//
+//                println "OPTIONS: "
+//                excelItems.findAll{it.column==cellIndex}.each { it ->
+//                    println "\n" + it.toString() + "\n"
+//                }
+//
+//                ExcelItem columnDescription
+//
+//                ExcelItem row2 = excelItems.find{it.column==cellIndex}.find{it.row==2}
+//                ExcelItem row1 = excelItems.find{it.column==cellIndex}.find{it.row==1}
+//                ExcelItem row0 = excelItems.find{it.column==cellIndex}.find{it.row==0}
+//
+//                if (row2!=null){
+//                    columnDescription = row2
+//                } else if (row1!=null){
+//                    columnDescription = row1
+//                } else if (row0!=null){
+//                    columnDescription = row0
+//                }
+//
+//                println "CHOSEN FOR COLUMN: \n" + columnDescription.toString() + "\n"
+//                println "CELL VALUE: " + cell.toString()
+//
+//                 if (columnDescription.parent != null){
+//                     if (columnDescription.parent.row==0){
+//                         if (columnDescription.row==2){
+//                             fields.add(new ValueToInsert(columnDescription.parent.value, "", columnDescription.value,cell.toString(), cellIndex,rowIndex))
+//                         } else {
+//                             fields.add(new ValueToInsert(columnDescription.parent.value, columnDescription.value, "",cell.toString(), cellIndex,rowIndex))
+//                         }
+//                     } else {
+//                         fields.add(new ValueToInsert(columnDescription.parent.parent.value, columnDescription.parent.value, columnDescription.value,cell.toString(), cellIndex,rowIndex))
+//                     }
+//                 } else {
+//                     fields.add(new ValueToInsert(columnDescription.value, "", "",cell.toString(), cellIndex,rowIndex))
+//                 }
+//
+//                cellIndex++;
+//            }
+//        }
+//        rowIndex++;
+//    }
+//
+//    fields.each{
+//        println it.toString()
+//    }
 
     return fields
 }
