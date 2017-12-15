@@ -8,7 +8,7 @@ def call (String process, String processDescription, int build){
     int buildId = Integer.parseInt(
         JenkinsBuild.addNew(build,processInstance,"")
                 .getObjectId()
-                .get("PK")
+                .getKey()
                 .toString()
     )
     return buildId
