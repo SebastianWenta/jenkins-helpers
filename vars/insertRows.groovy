@@ -180,53 +180,53 @@ def call(String excel, int jenkinsBuildPK){
 //    return fields
 //}
 
-
-class ExcelItem{
-    int row
-    int column
-    String value
-    ExcelItem parent
-
-    ExcelItem(int r, int c, String v){
-        row = r
-        column = c
-        value = v
-    }
-
-    public String toString(){
-        "EXCELITEM \n" +
-                "row: ${this.row}\n" +
-                "column: ${this.column}\n" +
-                "value: ${this.value}\n" +
-                "parent: ${this.parent}"
-    }
-
-}
-
-class ValueToInsert {
-    String column1
-    String column2
-    String column3
-    String value
-    int column
-    int row
-
-    ValueToInsert(String c1, String c2, String c3, String v, int c, int r){
-        column1 = c1
-        column2 = c2
-        column3 = c3
-        value = v
-        column = c
-        row = r
-    }
-
-    public String toString(){
-        "VALUE TO INSERT \n" +
-                "column: ${this.column}\n" +
-                "row: ${this.row}\n" +
-                "column1: ${this.column1}\n" +
-                "column2: ${this.column2}\n" +
-                "column3: ${this.column3}\n" +
-                "value: ${this.value}\n"
-    }
-}
+//
+//class ExcelItem{
+//    int row
+//    int column
+//    String value
+//    ExcelItem parent
+//
+//    ExcelItem(int r, int c, String v){
+//        row = r
+//        column = c
+//        value = v
+//    }
+//
+//    public String toString(){
+//        "EXCELITEM \n" +
+//                "row: ${this.row}\n" +
+//                "column: ${this.column}\n" +
+//                "value: ${this.value}\n" +
+//                "parent: ${this.parent}"
+//    }
+//
+//}
+//
+//class ValueToInsert {
+//    String column1
+//    String column2
+//    String column3
+//    String value
+//    int column
+//    int row
+//
+//    ValueToInsert(String c1, String c2, String c3, String v, int c, int r){
+//        column1 = c1
+//        column2 = c2
+//        column3 = c3
+//        value = v
+//        column = c
+//        row = r
+//    }
+//
+//    public String toString(){
+//        "VALUE TO INSERT \n" +
+//                "column: ${this.column}\n" +
+//                "row: ${this.row}\n" +
+//                "column1: ${this.column1}\n" +
+//                "column2: ${this.column2}\n" +
+//                "column3: ${this.column3}\n" +
+//                "value: ${this.value}\n"
+//    }
+//}
