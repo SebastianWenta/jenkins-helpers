@@ -76,23 +76,23 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
         }
         rowIndex++;
     }
-//
-//    excelItems.findAll {it.row==1}.each { secondRowItem ->
-//
-//        ArrayList<Integer> availableColumns = new ArrayList()
-//        excelItems.findAll {it.row==0 && it.column <=secondRowItem.column}.eachWithIndex{ExcelItem e, int i ->
-//            println "${i}: ${e.column}"
-//            availableColumns.add(e.column)
-//        }
-//        secondRowItem.parent = excelItems.find {it.row==0 && it.column == availableColumns.min()}
-//
-//        if (logout){
-//            println "secondRowItem.row: " + secondRowItem.row
-//            println "secondRowItem.column: " + secondRowItem.column
-//            println "secondRowItem.value: " + secondRowItem.value
-//            println "secondRowItem.parent: " + secondRowItem.parent.row + " : " + secondRowItem.parent.column + " : " + secondRowItem.parent.value
-//        }
-//    }
+
+    excelItems.findAll {it.row==1}.each { secondRowItem ->
+
+        ArrayList<Integer> availableColumns = new ArrayList()
+        excelItems.findAll {it.row==0 && it.column <=secondRowItem.column}.eachWithIndex{ExcelItem e, int i ->
+            println "${i}: ${e.column}"
+            availableColumns.add(e.column)
+        }
+        secondRowItem.parent = excelItems.find {it.row==0 && it.column == availableColumns.min()}
+
+        if (logout){
+            println "secondRowItem.row: " + secondRowItem.row
+            println "secondRowItem.column: " + secondRowItem.column
+            println "secondRowItem.value: " + secondRowItem.value
+            println "secondRowItem.parent: " + secondRowItem.parent.row + " : " + secondRowItem.parent.column + " : " + secondRowItem.parent.value
+        }
+    }
 //
 //    excelItems.findAll {it.row==2}.each { thirdRowItem ->
 //        ExcelItem nearestSecondRow = null
