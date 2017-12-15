@@ -5,10 +5,13 @@
 def call(String excel, int jenkinsBuildPK){
     String runInsertProcedure = "cmd /c groovy insertProcedure.groovy \"${excel}\" ${jenkinsBuildPK}"
 
+    String result = ""
+
     def process = runInsertProcedure.execute();
     process.in.eachLine { line ->
-        println line
+        result=result+line+"\n"
     }
+    return result
 
 }
 
