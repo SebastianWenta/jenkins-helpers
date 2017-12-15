@@ -5,9 +5,7 @@ import pl.uniteam.rpa_dbconnect.*
 
 def call (String process, String processDescription, int build){
     def processInstance = JenkinsProcess.findProcess(process, processDescription)
-    def jenkinsBuild = JenkinsBuild.addNew(build,processInstance,"")
-
+    def jenkinsBuild = JenkinsBuild.addNew(build,processInstance,"jenkinsProcessVersion")
     def pk = jenkinsBuild.getObjectId().getIdSnapshot().get(JenkinsBuild.PK_PK_COLUMN).toString()
-    int buildId = Integer.parseInt(pk)
-    return buildId
+    return Integer.parseInt(pk)
 }
