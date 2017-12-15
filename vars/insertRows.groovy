@@ -109,7 +109,7 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
                 println "${i}: ${e.column}"
                 availableColumns.add(e.column)
             }
-//            nearestSecondRow = excelItems?.findAll {it.row==1 && it.column == availableColumns.min()}
+            nearestSecondRow = excelItems.findAll {it.row==1 && it.column == availableColumns.min()}
         }
 //
 //        if (excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}?.size()>0){
