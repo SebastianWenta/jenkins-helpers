@@ -3,7 +3,13 @@
  */
 
 def call(String excel, int jenkinsBuildPK){
-    "cmd /c groovy insertRows.groovy \"${excel}\" ${jenkinsBuildPK}".execute()
+    String runInsertProcedure = "cmd /c groovy insertProcedure.groovy \"${excel}\" ${jenkinsBuildPK}"
+
+    def process = runInsertProcedure.execute();
+    process.in.eachLine { line ->
+        println line
+    }
+
 }
 
 //this.call("C:\\Users\\sebwent\\Desktop\\dane wejsciowe.xlsx", 200)
