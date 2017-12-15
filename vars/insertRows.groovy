@@ -39,7 +39,7 @@ def call(String excel, int jenkinsBuildPK){
 
 }
 
-this.call("C:\\Users\\sebwent\\Desktop\\dane wejsciowe.xlsx", 200)
+//this.call("C:\\Users\\sebwent\\Desktop\\dane wejsciowe.xlsx", 200)
 
 
 static Sheet getFirstSheetFromExcelWorkbook(File excel){
