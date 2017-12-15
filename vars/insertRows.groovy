@@ -57,25 +57,25 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
         System.out.println("SHEET NAME: " + sheet);
     }
 
-//    int rowIndex = 0;
-//    int columns = 0;
-//    for (Iterator<Row> rowsIT = sheet.rowIterator(); (rowsIT.hasNext() && (rowIndex<3));) {
-//        Row row = rowsIT.next();
-//        columns = row.getPhysicalNumberOfCells()
-//        int cellIndex = 0;
-//        for (Iterator<Cell> cellsIT = row.cellIterator(); cellsIT.hasNext(); ) {
-//
-//            Cell cell = cellsIT.next();
-//            if (logout){
-//                println rowIndex + ":" + cellIndex + " - " + (String) cell.getStringCellValue()
-//            }
-//            if (cell.getStringCellValue()!=""){
-//                excelItems.add(new ExcelItem(rowIndex, cellIndex, cell.getStringCellValue()))
-//            }
-//            cellIndex++;
-//        }
-//        rowIndex++;
-//    }
+    int rowIndex = 0;
+    int columns = 0;
+    for (Iterator<Row> rowsIT = sheet.rowIterator(); (rowsIT.hasNext() && (rowIndex<3));) {
+        Row row = rowsIT.next();
+        columns = row.getPhysicalNumberOfCells()
+        int cellIndex = 0;
+        for (Iterator<Cell> cellsIT = row.cellIterator(); cellsIT.hasNext(); ) {
+
+            Cell cell = cellsIT.next();
+            if (logout){
+                println rowIndex + ":" + cellIndex + " - " + (String) cell.getStringCellValue()
+            }
+            if (cell.getStringCellValue()!=""){
+                excelItems.add(new ExcelItem(rowIndex, cellIndex, cell.getStringCellValue()))
+            }
+            cellIndex++;
+        }
+        rowIndex++;
+    }
 //
 //    excelItems.findAll {it.row==1}.each { secondRowItem ->
 //
