@@ -93,54 +93,54 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
             println "secondRowItem.parent: " + secondRowItem.parent.row + " : " + secondRowItem.parent.column + " : " + secondRowItem.parent.value
         }
     }
-//
-//    excelItems.findAll {it.row==2}.each { thirdRowItem ->
-//        ExcelItem nearestSecondRow = null
-//        ExcelItem nearestFirstRow = null
-//
-//        if (logout){
-//            println "\nCURRENT THIRD ROW: " + thirdRowItem.column + " : " + thirdRowItem.column + " : " + thirdRowItem.value
-//        }
-//
-//        if (excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}?.size()>0){
-//
-//            ArrayList<Integer> availableColumns = new ArrayList()
-//            excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
-//                println "${i}: ${e.column}"
-//                availableColumns.add(e.column)
-//            }
-//            nearestSecondRow = excelItems?.findAll {it.row==1 && it.column == availableColumns.min()}
-//        }
-//
-//        if (excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}?.size()>0){
-//
-//            ArrayList<Integer> availableColumns = new ArrayList()
-//            excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
-//                println "${i}: ${e.column}"
-//                availableColumns.add(e.column)
-//            }
-//
-//            nearestFirstRow = excelItems.findAll {it.row==0 && it.column == availableColumns.min()}
-//        }
-//
-//        if (logout){
-//            println "nearestSecondRow: " + (nearestSecondRow?.value?:"null") + " " + (nearestSecondRow?.column?:"0")
-//            println "nearestFirstRow: " + (nearestFirstRow?.value?:"null") + " " + (nearestFirstRow?.column?:"0")
-//        }
-//
-//        if ((nearestSecondRow?.column?:0) >= (nearestFirstRow?.column?:0)){
-//            thirdRowItem.parent = nearestSecondRow
-//        } else {
-//            thirdRowItem.parent = nearestFirstRow
-//        }
-//
-//        if (logout){
-//            println "thirdRowItem.row: " + thirdRowItem.row
-//            println "thirdRowItem.column: " + thirdRowItem.column
-//            println "thirdRowItem.value: " + thirdRowItem.value
-//            println "thirdRowItem.parent: " + thirdRowItem.parent.row + " : " + thirdRowItem.parent.column + " : " + thirdRowItem.parent.value
-//        }
-//    }
+
+    excelItems.findAll {it.row==2}.each { thirdRowItem ->
+        ExcelItem nearestSecondRow = null
+        ExcelItem nearestFirstRow = null
+
+        if (logout){
+            println "\nCURRENT THIRD ROW: " + thirdRowItem.column + " : " + thirdRowItem.column + " : " + thirdRowItem.value
+        }
+
+        if (excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}?.size()>0){
+
+            ArrayList<Integer> availableColumns = new ArrayList()
+            excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
+                println "${i}: ${e.column}"
+                availableColumns.add(e.column)
+            }
+            nearestSecondRow = excelItems?.findAll {it.row==1 && it.column == availableColumns.min()}
+        }
+
+        if (excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}?.size()>0){
+
+            ArrayList<Integer> availableColumns = new ArrayList()
+            excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
+                println "${i}: ${e.column}"
+                availableColumns.add(e.column)
+            }
+
+            nearestFirstRow = excelItems.findAll {it.row==0 && it.column == availableColumns.min()}
+        }
+
+        if (logout){
+            println "nearestSecondRow: " + (nearestSecondRow?.value?:"null") + " " + (nearestSecondRow?.column?:"0")
+            println "nearestFirstRow: " + (nearestFirstRow?.value?:"null") + " " + (nearestFirstRow?.column?:"0")
+        }
+
+        if ((nearestSecondRow?.column?:0) >= (nearestFirstRow?.column?:0)){
+            thirdRowItem.parent = nearestSecondRow
+        } else {
+            thirdRowItem.parent = nearestFirstRow
+        }
+
+        if (logout){
+            println "thirdRowItem.row: " + thirdRowItem.row
+            println "thirdRowItem.column: " + thirdRowItem.column
+            println "thirdRowItem.value: " + thirdRowItem.value
+            println "thirdRowItem.parent: " + thirdRowItem.parent.row + " : " + thirdRowItem.parent.column + " : " + thirdRowItem.parent.value
+        }
+    }
 
 //    rowIndex = 0;
 //    for (Iterator<Row> rowsIT = sheet.rowIterator(); rowsIT.hasNext();) {
