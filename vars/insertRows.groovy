@@ -15,9 +15,9 @@ import pl.uniteam.rpa_dbconnect.JenkinsBuild
 
 def call(String excel, int jenkinsBuildPK){
     Sheet sheet = getFirstSheetFromExcelWorkbook(new File (excel))
-    ArrayList<ValueToInsert> fieldsValues = getAllFieldsValues(sheet)
+    //ArrayList<ValueToInsert> fieldsValues = getAllFieldsValues(sheet)
 
-    return fieldsValues.toString()
+    return "ASD"
 
 //    Attachments att = JenkinsBuild.getJenkinsBuildByID(jenkinsBuildPK).getAttachmentIDRelation()
 //
