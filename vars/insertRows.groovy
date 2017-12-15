@@ -104,11 +104,11 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
 
         if (excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.size()>0){
 
-//            ArrayList<Integer> availableColumns = new ArrayList()
-//            excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
-//                println "${i}: ${e.column}"
-//                availableColumns.add(e.column)
-//            }
+            ArrayList<Integer> availableColumns = new ArrayList()
+            excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
+                println "${i}: ${e.column}"
+                availableColumns.add(e.column)
+            }
 //            nearestSecondRow = excelItems?.findAll {it.row==1 && it.column == availableColumns.min()}
         }
 //
