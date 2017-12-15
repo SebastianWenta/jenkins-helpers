@@ -99,12 +99,25 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
             println "\nCURRENT THIRD ROW: " + thirdRowItem.column + " : " + thirdRowItem.column + " : " + thirdRowItem.value
         }
 
-        if (excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}?.sort {-it.column}.size()>0){
-            nearestSecondRow = excelItems?.findAll {it.row==1 && it.column <=thirdRowItem.column}?.sort {-it.column}?.get(0)
+        if (excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}?.size()>0){
+
+            ArrayList<Integer> availableColumns = new ArrayList()
+            excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
+                println "${i}: ${e.column}"
+                availableColumns.add(e.column)
+            }
+            nearestSecondRow = excelItems?.findAll {it.row==1 && it.column == availableColumns.min()}
         }
 
         if (excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}.sort {-it.column}.size()>0){
-            nearestFirstRow = excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}.sort {-it.column}.get(0)
+
+            ArrayList<Integer> availableColumns = new ArrayList()
+            excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
+                println "${i}: ${e.column}"
+                availableColumns.add(e.column)
+            }
+
+            nearestFirstRow = excelItems.findAll {it.row==0 && it.column == availableColumns.min()}
         }
 
         if (logout){
