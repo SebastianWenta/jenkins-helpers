@@ -14,25 +14,25 @@ import pl.uniteam.rpa_dbconnect.JenkinsBuild
 
 
 def call(String excel, int jenkinsBuildPK){
-    Sheet sheet = getFirstSheetFromExcelWorkbook(new File (excel))
-    ArrayList<ValueToInsert> fieldsValues = getAllFieldsValues(sheet)
-    Attachments att = JenkinsBuild.getJenkinsBuildByID(jenkinsBuildPK).getAttachmentIDRelation()
-
-    int maxRow = fieldsValues.collect {it.row}.max()
-    int minRow = fieldsValues.collect {it.row}.min()
-
-    minRow.upto(maxRow){ currentRow ->
-        Map<Fields, String> map = [:]
-
-        fieldsValues.findAll {it.row==currentRow}.each { currentField ->
-            println "CURRENT FIELD VALUES \n${currentField.column1}\n${currentField.column2}\n${currentField.column3}\n${currentField.value}"
-            Fields f = Fields.findField(currentField.column1, currentField.column2, currentField.column3)
-            println "CURRENT FIELD \n${f}"
-            map.put(f, currentField.value)
-        }
-
-        Data.insertValue(map, att, currentRow)
-    }
+//    Sheet sheet = getFirstSheetFromExcelWorkbook(new File (excel))
+//    ArrayList<ValueToInsert> fieldsValues = getAllFieldsValues(sheet)
+//    Attachments att = JenkinsBuild.getJenkinsBuildByID(jenkinsBuildPK).getAttachmentIDRelation()
+//
+//    int maxRow = fieldsValues.collect {it.row}.max()
+//    int minRow = fieldsValues.collect {it.row}.min()
+//
+//    minRow.upto(maxRow){ currentRow ->
+//        Map<Fields, String> map = [:]
+//
+//        fieldsValues.findAll {it.row==currentRow}.each { currentField ->
+//            println "CURRENT FIELD VALUES \n${currentField.column1}\n${currentField.column2}\n${currentField.column3}\n${currentField.value}"
+//            Fields f = Fields.findField(currentField.column1, currentField.column2, currentField.column3)
+//            println "CURRENT FIELD \n${f}"
+//            map.put(f, currentField.value)
+//        }
+//
+//        Data.insertValue(map, att, currentRow)
+//    }
 
 }
 
