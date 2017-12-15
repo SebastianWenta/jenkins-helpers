@@ -75,7 +75,18 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
     }
 
     excelItems.findAll {it.row==1}.each { secondRowItem ->
-        secondRowItem.parent = excelItems.findAll {it.row==0 && it.column <=secondRowItem.column}.sort {-it.column}.getAt(0)
+
+
+
+        excelItems.findAll {it.row==0 && it.column <=secondRowItem.column}.sort {-it.column}.eachWithIndex{e, i ->
+            println "${i}: ${e.row}"
+            if (i==0){
+                secondRowItem.parent = e
+            }
+        }
+        //secondRowItem.parent = excelItems.findAll {it.row==0 && it.column <=secondRowItem.column}.sort {-it.column}.get(0)
+
+
 
         if (logout){
             println "secondRowItem.row: " + secondRowItem.row
