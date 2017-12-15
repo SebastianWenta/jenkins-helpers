@@ -102,14 +102,14 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
             println "\nCURRENT THIRD ROW: " + thirdRowItem.column + " : " + thirdRowItem.column + " : " + thirdRowItem.value
         }
 
-        if (excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}?.size()>0){
+        if (excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.size()>0){
 
-            ArrayList<Integer> availableColumns = new ArrayList()
-            excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
-                println "${i}: ${e.column}"
-                availableColumns.add(e.column)
-            }
-            nearestSecondRow = excelItems?.findAll {it.row==1 && it.column == availableColumns.min()}
+//            ArrayList<Integer> availableColumns = new ArrayList()
+//            excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
+//                println "${i}: ${e.column}"
+//                availableColumns.add(e.column)
+//            }
+//            nearestSecondRow = excelItems?.findAll {it.row==1 && it.column == availableColumns.min()}
         }
 //
 //        if (excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}?.size()>0){
