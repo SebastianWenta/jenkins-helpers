@@ -11,7 +11,7 @@ def call(String excel, int jenkinsBuildPK){
     process.in.eachLine { line ->
         result=result+line+"\n"
     }
-    return result
+    return runInsertProcedure
 
 }
 
