@@ -52,10 +52,6 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
     ArrayList<ExcelItem> excelItems = new ArrayList<ExcelItem>()
     ArrayList<ValueToInsert> fields = new ArrayList<>()
 
-    if (logout){
-        //System.out.//println("SHEET NAME: " + sheet);
-    }
-
     int rowIndex = 0;
     int columns = 0;
     for (Iterator<Row> rowsIT = sheet.rowIterator(); (rowsIT.hasNext() && (rowIndex<3));) {
@@ -207,13 +203,13 @@ class ExcelItem{
         value = v
     }
 
-    public String toString(){
-        "EXCELITEM \n" +
-                "row: ${this.row}\n" +
-                "column: ${this.column}\n" +
-                "value: ${this.value}\n" +
-                "parent: ${this.parent}"
-    }
+//    public String toString(){
+//        "EXCELITEM \n" +
+//                "row: ${this.row}\n" +
+//                "column: ${this.column}\n" +
+//                "value: ${this.value}\n" +
+//                "parent: ${this.parent}"
+//    }
 
 }
 
@@ -234,13 +230,13 @@ class ValueToInsert {
         row = r
     }
 
-    public String toString(){
-        "VALUE TO INSERT \n" +
-                "column: ${this.column}\n" +
-                "row: ${this.row}\n" +
-                "column1: ${this.column1}\n" +
-                "column2: ${this.column2}\n" +
-                "column3: ${this.column3}\n" +
-                "value: ${this.value}\n"
-    }
+//    public String toString(){
+//        "VALUE TO INSERT \n" +
+//                "column: ${this.column}\n" +
+//                "row: ${this.row}\n" +
+//                "column1: ${this.column1}\n" +
+//                "column2: ${this.column2}\n" +
+//                "column3: ${this.column3}\n" +
+//                "value: ${this.value}\n"
+//    }
 }
