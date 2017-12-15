@@ -134,12 +134,12 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
             thirdRowItem.parent = nearestFirstRow
         }
 
-        if (logout){
-            println "thirdRowItem.row: " + thirdRowItem.row
-            println "thirdRowItem.column: " + thirdRowItem.column
-            println "thirdRowItem.value: " + thirdRowItem.value
-            println "thirdRowItem.parent: " + thirdRowItem.parent.row + " : " + thirdRowItem.parent.column + " : " + thirdRowItem.parent.value
-        }
+//        if (logout){
+//            println "thirdRowItem.row: " + thirdRowItem.row
+//            println "thirdRowItem.column: " + thirdRowItem.column
+//            println "thirdRowItem.value: " + thirdRowItem.value
+//            println "thirdRowItem.parent: " + thirdRowItem.parent.row + " : " + thirdRowItem.parent.column + " : " + thirdRowItem.parent.value
+//        }
     }
 
     rowIndex = 0;
