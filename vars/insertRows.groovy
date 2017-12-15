@@ -111,35 +111,35 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
             }
             nearestSecondRow = excelItems?.findAll {it.row==1 && it.column == availableColumns.min()}
         }
-
-        if (excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}?.size()>0){
-
-            ArrayList<Integer> availableColumns = new ArrayList()
-            excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
-                println "${i}: ${e.column}"
-                availableColumns.add(e.column)
-            }
-
-            nearestFirstRow = excelItems.findAll {it.row==0 && it.column == availableColumns.min()}
-        }
-
-        if (logout){
-            println "nearestSecondRow: " + (nearestSecondRow?.value?:"null") + " " + (nearestSecondRow?.column?:"0")
-            println "nearestFirstRow: " + (nearestFirstRow?.value?:"null") + " " + (nearestFirstRow?.column?:"0")
-        }
-
-        if ((nearestSecondRow?.column?:0) >= (nearestFirstRow?.column?:0)){
-            thirdRowItem.parent = nearestSecondRow
-        } else {
-            thirdRowItem.parent = nearestFirstRow
-        }
-
-        if (logout){
-            println "thirdRowItem.row: " + thirdRowItem.row
-            println "thirdRowItem.column: " + thirdRowItem.column
-            println "thirdRowItem.value: " + thirdRowItem.value
-            println "thirdRowItem.parent: " + thirdRowItem.parent.row + " : " + thirdRowItem.parent.column + " : " + thirdRowItem.parent.value
-        }
+//
+//        if (excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}?.size()>0){
+//
+//            ArrayList<Integer> availableColumns = new ArrayList()
+//            excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
+//                println "${i}: ${e.column}"
+//                availableColumns.add(e.column)
+//            }
+//
+//            nearestFirstRow = excelItems.findAll {it.row==0 && it.column == availableColumns.min()}
+//        }
+//
+//        if (logout){
+//            println "nearestSecondRow: " + (nearestSecondRow?.value?:"null") + " " + (nearestSecondRow?.column?:"0")
+//            println "nearestFirstRow: " + (nearestFirstRow?.value?:"null") + " " + (nearestFirstRow?.column?:"0")
+//        }
+//
+//        if ((nearestSecondRow?.column?:0) >= (nearestFirstRow?.column?:0)){
+//            thirdRowItem.parent = nearestSecondRow
+//        } else {
+//            thirdRowItem.parent = nearestFirstRow
+//        }
+//
+//        if (logout){
+//            println "thirdRowItem.row: " + thirdRowItem.row
+//            println "thirdRowItem.column: " + thirdRowItem.column
+//            println "thirdRowItem.value: " + thirdRowItem.value
+//            println "thirdRowItem.parent: " + thirdRowItem.parent.row + " : " + thirdRowItem.parent.column + " : " + thirdRowItem.parent.value
+//        }
     }
 
 //    rowIndex = 0;
