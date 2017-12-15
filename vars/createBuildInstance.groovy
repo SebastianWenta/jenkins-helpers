@@ -9,3 +9,5 @@ def call (String process, String processDescription, int build){
     def pk = jenkinsBuild.getObjectId().getIdSnapshot().get(JenkinsBuild.PK_PK_COLUMN).toString()
     return Integer.parseInt(pk)
 }
+
+this.call("proces test", "proces desc", 6)
