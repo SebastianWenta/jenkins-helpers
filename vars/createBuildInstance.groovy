@@ -7,7 +7,7 @@ def call (String process, String processDescription, int build){
     def processInstance = JenkinsProcess.findProcess(process, processDescription)
     int buildId = Integer.parseInt(
         JenkinsBuild.addNew(build,processInstance,"")
-                .readSimpleProperty("PK")
+                .readSimpleProperty(JenkinsBuild.PK_PK_COLUMN)
                 .toString()
     )
     return buildId
