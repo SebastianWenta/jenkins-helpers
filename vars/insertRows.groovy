@@ -26,9 +26,9 @@ def call(String excel, int jenkinsBuildPK){
         Map<Fields, String> map = [:]
 
         fieldsValues.findAll {it.row==currentRow}.each { currentField ->
-            println "CURRENT FIELD VALUES \n${currentField.column1}\n${currentField.column2}\n${currentField.column3}\n${currentField.value}"
+            //println "CURRENT FIELD VALUES \n${currentField.column1}\n${currentField.column2}\n${currentField.column3}\n${currentField.value}"
             Fields f = Fields.findField(currentField.column1, currentField.column2, currentField.column3)
-            println "CURRENT FIELD \n${f}"
+            //println "CURRENT FIELD \n${f}"
             map.put(f, currentField.value)
         }
 
@@ -53,7 +53,7 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
     ArrayList<ValueToInsert> fields = new ArrayList<>()
 
     if (logout){
-        System.out.println("SHEET NAME: " + sheet);
+        //System.out.//println("SHEET NAME: " + sheet);
     }
 
     int rowIndex = 0;
@@ -66,7 +66,7 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
 
             Cell cell = cellsIT.next();
             if (logout){
-                println rowIndex + ":" + cellIndex + " - " + (String) cell.getStringCellValue()
+                //println rowIndex + ":" + cellIndex + " - " + (String) cell.getStringCellValue()
             }
             if (cell.getStringCellValue()!=""){
                 excelItems.add(new ExcelItem(rowIndex, cellIndex, cell.getStringCellValue()))
@@ -80,16 +80,16 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
 
         ArrayList<Integer> availableColumns = new ArrayList()
         excelItems.findAll {it.row==0 && it.column <=secondRowItem.column}.eachWithIndex{ExcelItem e, int i ->
-            println "${i}: ${e.column}"
+            //println "${i}: ${e.column}"
             availableColumns.add(e.column)
         }
         secondRowItem.parent = excelItems.find {it.row==0 && it.column == availableColumns.min()}
 
         if (logout){
-            println "secondRowItem.row: " + secondRowItem.row
-            println "secondRowItem.column: " + secondRowItem.column
-            println "secondRowItem.value: " + secondRowItem.value
-            println "secondRowItem.parent: " + secondRowItem.parent.row + " : " + secondRowItem.parent.column + " : " + secondRowItem.parent.value
+            //println "secondRowItem.row: " + secondRowItem.row
+            //println "secondRowItem.column: " + secondRowItem.column
+            //println "secondRowItem.value: " + secondRowItem.value
+            //println "secondRowItem.parent: " + secondRowItem.parent.row + " : " + secondRowItem.parent.column + " : " + secondRowItem.parent.value
         }
     }
 
@@ -98,14 +98,14 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
         ExcelItem nearestFirstRow = null
 
         if (logout){
-            println "\nCURRENT THIRD ROW: " + thirdRowItem.column + " : " + thirdRowItem.column + " : " + thirdRowItem.value
+            //println "\nCURRENT THIRD ROW: " + thirdRowItem.column + " : " + thirdRowItem.column + " : " + thirdRowItem.value
         }
 
         if (excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}?.size()>0){
 
             ArrayList<Integer> availableColumns = new ArrayList()
             excelItems.findAll {it.row==1 && it.column <=thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
-                println "${i}: ${e.column}"
+                //println "${i}: ${e.column}"
                 availableColumns.add(e.column)
             }
             nearestSecondRow = excelItems.find {it.row==1 && it.column == availableColumns.min()}
@@ -115,7 +115,7 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
 
             ArrayList<Integer> availableColumns = new ArrayList()
             excelItems.findAll {it.row==0 && it.column <= thirdRowItem.column}.eachWithIndex{ExcelItem e, int i ->
-                println "${i}: ${e.column}"
+                //println "${i}: ${e.column}"
                 availableColumns.add(e.column)
             }
 
@@ -123,8 +123,8 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
         }
 
         if (logout){
-            println "nearestSecondRow: " + (nearestSecondRow?.value?:"null") + " " + (nearestSecondRow?.column?:"0")
-            println "nearestFirstRow: " + (nearestFirstRow?.value?:"null") + " " + (nearestFirstRow?.column?:"0")
+            //println "nearestSecondRow: " + (nearestSecondRow?.value?:"null") + " " + (nearestSecondRow?.column?:"0")
+            //println "nearestFirstRow: " + (nearestFirstRow?.value?:"null") + " " + (nearestFirstRow?.column?:"0")
         }
 
         if ((nearestSecondRow?.column?:0) >= (nearestFirstRow?.column?:0)){
@@ -142,12 +142,12 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
             for (Iterator<Cell> cellsIT = row.cellIterator(); cellsIT.hasNext(); ) {
                 Cell cell = cellsIT.next();
                 if (logout){
-                    println rowIndex + ":" + cellIndex + " - " + cell.toString()
+                    //println rowIndex + ":" + cellIndex + " - " + cell.toString()
                 }
 
-                println "OPTIONS: "
+                //println "OPTIONS: "
                 excelItems.findAll{it.column==cellIndex}.each { it ->
-                    println "\n" + it.toString() + "\n"
+                    //println "\n" + it.toString() + "\n"
                 }
 
                 ExcelItem columnDescription
@@ -164,8 +164,8 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
                     columnDescription = row0
                 }
 
-                println "CHOSEN FOR COLUMN: \n" + columnDescription.toString() + "\n"
-                println "CELL VALUE: " + cell.toString()
+                //println "CHOSEN FOR COLUMN: \n" + columnDescription.toString() + "\n"
+                //println "CELL VALUE: " + cell.toString()
 
                 if (columnDescription.parent != null){
                     if (columnDescription.parent.row==0){
@@ -188,7 +188,7 @@ static ArrayList<ValueToInsert> getAllFieldsValues(Sheet sheet){
     }
 
     fields.each{
-        println it.toString()
+        //println it.toString()
     }
 
     return fields
