@@ -3,5 +3,7 @@
  */
 import pl.uniteam.rpa_dbconnect.*
 def call (Object sourcePath, int jenkinsBuildId){
-    Attachments.insertAttachment(sourcePath.toString(), "test", 15, "asd", 1, jenkinsBuildId)
+    if (Attachments.insertAttachment(sourcePath.toString(), "test", 15, "asd", 1, jenkinsBuildId)){
+        return "SUCCESS"
+    }
 }
