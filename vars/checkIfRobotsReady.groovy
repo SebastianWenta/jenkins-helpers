@@ -4,7 +4,7 @@
 
 def call (){
 
-    String robotVerificationProcessPrefix = "PREFIX"
+    String robotVerificationProcessPrefix = "ROBOT"
     String verificationResult = "SUCCESS"
 
     def jobs = Jenkins.instance.getAllItems()
