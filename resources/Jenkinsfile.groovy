@@ -16,9 +16,9 @@ pipeline {
     }
     stages {
         stage('Get Source Code from Repository'){
-            steps{
-                git credentialsId: '3e55bd01-346f-40c4-8c41-095e438689c2', url: 'https://github.com/SebastianWenta/jenkins-helpers'
-            }
+                steps{
+                    git credentialsId: '3e55bd01-346f-40c4-8c41-095e438689c2', url: 'https://github.com/SebastianWenta/jenkins-helpers'
+                }
         }
         stage('Initilize DB'){
             steps{
