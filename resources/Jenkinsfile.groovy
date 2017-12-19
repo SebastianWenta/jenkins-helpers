@@ -149,8 +149,9 @@ pipeline {
                     echo "Get Robot source code"
                     git credentialsId: '3e55bd01-346f-40c4-8c41-095e438689c2', url: 'https://github.com/SebastianWenta/jenkins-helpers'
                     script{
-                        for (int i = 0; i <10; i++){
-                            echo "current trial: ${i}"
+                        int currentRow = getNextrowId(jenkinsBuildId)
+                        while (currentRow>=0){
+                            echo "current trial: ${currentRow}"
                         }
                     }
                 }
