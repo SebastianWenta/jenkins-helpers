@@ -2,9 +2,9 @@
  * Created by sebwent on 14/12/2017.
  */
 
-def call (){
+def call (String prefix){
 
-    String robotVerificationProcessPrefix = "ROBOT"
+    String robotVerificationProcessPrefix = prefix
     String verificationResult = "SUCCESS"
 
     def jobs = Jenkins.instance.getAllItems()
