@@ -49,7 +49,7 @@ pipeline {
                     def isWindowsNodeReady = Jenkins.instance.getNode('Windows').toComputer().isOnline()
                     echo "Is Windows node online: " + isWindowsNodeReady
                     if (isWindowsNodeReady){
-                        def robotsResult = checkIfRobotsReady()
+                        def robotsResult = checkIfRobotsReady("ROBOT")
                         if (robotsResult.contains("SUCCESS")){
                             areRobotsReady = true
                         } else {
