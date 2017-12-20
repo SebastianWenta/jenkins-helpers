@@ -16,9 +16,9 @@ pipeline {
     }
     stages {
         stage('Get Source Code from Repository'){
-                steps{
-                    git credentialsId: '3e55bd01-346f-40c4-8c41-095e438689c2', url: 'https://github.com/SebastianWenta/jenkins-helpers'
-                }
+            steps{
+                git credentialsId: '3e55bd01-346f-40c4-8c41-095e438689c2', url: 'https://github.com/SebastianWenta/jenkins-helpers'
+            }
         }
         stage('Initilize DB'){
             steps{
@@ -124,7 +124,7 @@ pipeline {
             }
             steps {
                 script {
-                    String excelHandlerResult = bat(script: "java -jar excelHandler-all.JAR insert \"${excelFile}\" ${jenkinsBuildId}", returnStdout: true)
+                    String excelHandlerResult = bat(script: "java -jar excelHandler-all.JAR insert \"${excelFile}\" ${jenkinsBuildId} log", returnStdout: true)
                     echo "RESULT: " + excelHandlerResult
                     if (excelHandlerResult.contains("SUCCESS")){
                         areRecordsImportedToDB = true
