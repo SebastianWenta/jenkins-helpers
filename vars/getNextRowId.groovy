@@ -4,5 +4,5 @@
 import pl.uniteam.rpa_dbconnect.*
 
 def call (int build){
-    return RowAttr.getNext(build)
+    return RowAttr.getNext(build, new Date())
 }

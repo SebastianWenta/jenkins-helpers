@@ -145,21 +145,35 @@ pipeline {
                 expression { areRecordsImportedToDB == true }
             }
             steps {
-                node('Windows') {
-                    echo "Get Robot source code"
-                    git credentialsId: '3e55bd01-346f-40c4-8c41-095e438689c2', url: 'https://github.com/SebastianWenta/jenkins-helpers'
-                    script{
-                        int current = getNextRowId(jenkinsBuildId)
-                        while (current>=0){
-                            echo "current trial: ${current}"
-                            current = getNextRowId(jenkinsBuildId)
+                script{
+                    int current = getNextRowId(jenkinsBuildId)
+                    while (current>=0){
+                        echo "current trial: ${current}"
+                        node('Windows') {
+                            echo "Get Robot source code"
+                            git credentialsId: '3e55bd01-346f-40c4-8c41-095e438689c2', url: 'https://github.com/SebastianWenta/jenkins-helpers'
+                            script{
+                                echo "current on WINDOWS: ${current}"
+                            }
                         }
+                        node('master') {
+                            script{
+                                echo "current on MASTER: ${current}"
+                            }
+                        }
+                        current = getNextRowId(jenkinsBuildId)
                     }
                 }
             }
             post {
                 always {
                     echo "POST Function ater robot"
+                }
+                success {
+
+                }
+                failure{
+
                 }
             }
         }
